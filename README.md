@@ -23,8 +23,8 @@ file = zpp_ManagedFile.ManagedFile()
 filename=None, mode='r', typefile="stringio", encoding=None, closable=True
 >En paramètre supplémentaire, nous pouvons mettre:<br/>
 >- filename = Chemin du fichier si typefile=file
->- mode = Option sur le fichier (w/r/a)
->- typefile = type de fichier  (file,string,bytesio,stringio,tempfile)
+>- mode = Option sur le fichier (w/r/a)   (default: r)
+>- typefile = type de fichier  (file,string,bytesio,stringio,tempfile)  (default: stringio)
 >- encoding = type d'encodage du fichier
 >- closable = activer le blocage de la fermeture (True pour activer)
 

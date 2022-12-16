@@ -5,10 +5,10 @@
 #/ Fichier annexe:                                                /#
 #/                                                                /#
 #/ Auteur: ZephyrOff  (Alexandre Pajak)                           /#
-#/ Version: 1.0.0                                                 /#
+#/ Version: 1.0.1                                                 /#
 #/ Description: Système de fichier managé pour le contrôle des    /#
 #/              actions sur un fichier                            /#
-#/ Date: 15/12/2022                                               /#
+#/ Date: 16/12/2022                                               /#
 ####################################################################
 
 from io import BytesIO, StringIO
@@ -70,23 +70,29 @@ class ManagedFile:
             return ''
 
     def set_permissions(self):
-        self.readable = False
-        self.writable = False
 
-        if "r" in self.mode:
+        if self.typefile == 'stringio' or self.typefile == 'bytesio':
             self.readable = True
-            if "+" in self.mode:
+            self.writable = True
+
+        else:
+            self.readable = False
+            self.writable = False
+
+            if "r" in self.mode:
+                self.readable = True
+                if "+" in self.mode:
+                    self.writable = True
+
+            elif "w" in self.mode:
                 self.writable = True
+                if "+" in self.mode:
+                    self.readable = True
 
-        elif "w" in self.mode:
-            self.writable = True
-            if "+" in self.mode:
-                self.readable = True
-
-        elif "a" in self.mode:
-            self.writable = True
-            if "+" in self.mode:
-                self.readable = True
+            elif "a" in self.mode:
+                self.writable = True
+                if "+" in self.mode:
+                    self.readable = True
 
     def __enter__(self):
         return self
