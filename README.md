@@ -38,7 +38,7 @@ file.isClosable(True)
 ```
 <br>
 
-## Opération courantes sur les fichiers
+## Opérations courantes sur les fichiers
 
 ### Fermeture du fichier
 ```python
