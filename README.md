@@ -1,4 +1,4 @@
-# :floppy_disk: zpp_ManagedFile
+# zpp_ManagedFile
 ## Informations
 Système de fichier managé pour le contrôle des actions sur un fichier tels que la fermeture du fichier.
 Permet de créer plusieurs types de fichier:
